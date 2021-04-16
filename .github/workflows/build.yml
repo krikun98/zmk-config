@@ -45,34 +45,34 @@ jobs:
         id: west-zephyr-export
         with:
           args: 'zephyr-export'
-      - name: West Build (Jorne Left)
+      - name: West Build (RT-22 Left)
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-build-jorne-left
+        id: west-build-rt-22-left
         with:
-          args: 'build "-s zmk/app -b nice_nano -- -DSHIELD=jorne_left -DZMK_CONFIG=/github/workspace/config"'
-      - name: Jorne DTS File
+          args: 'build "-s zmk/app -b nrfmicro_13 -- -DSHIELD=rt-22_left -DZMK_CONFIG=/github/workspace/config"'
+      - name: RT-22 DTS File
         if: ${{ always() }}
-        run: cat -n build/zephyr/nice_nano.dts.pre.tmp
-      - name: Jorne Left Kconfig file
+        run: cat -n build/zephyr/nrfmicro_13.dts.pre.tmp
+      - name: RT-22 Left Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 jorne_left_nice_nano.uf2
-      - name: Archive (Jorne Left)
+        run: cp build/zephyr/zmk.uf2 rt-22_left_nrfmicro_13.uf2
+      - name: Archive (RT-22 Left)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: jorne_left_nice_nano.uf2
-      - name: West Build (Jorne Right)
+          path: rt-22_left_nrfmicro_13.uf2
+      - name: West Build (RT-22 Right)
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-build-jorne-right
+        id: west-build-rt-22-right
         with:
-          args: 'build "--pristine -s zmk/app -b nice_nano -- -DSHIELD=jorne_right -DZMK_CONFIG=/github/workspace/config"'
-      - name: Jorne Right Kconfig file
+          args: 'build "--pristine -s zmk/app -b nrfmicro_13 -- -DSHIELD=rt-22_right -DZMK_CONFIG=/github/workspace/config"'
+      - name: RT-22 Right Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 jorne_right_nice_nano.uf2
-      - name: Archive (Jorne Right)
+        run: cp build/zephyr/zmk.uf2 rt-22_right_nrfmicro_13.uf2
+      - name: Archive (RT-22 Right)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: jorne_right_nice_nano.uf2
+          path: rt-22_right_nrfmicro_13.uf2

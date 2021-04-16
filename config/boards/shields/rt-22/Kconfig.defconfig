@@ -1,0 +1,25 @@
+
+if SHIELD_RT-22_LEFT
+
+config ZMK_KEYBOARD_NAME
+	default "RT-22 Left"
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default y
+
+endif
+
+
+if SHIELD_RT-22_RIGHT
+
+config ZMK_KEYBOARD_NAME
+	default "RT-22 Right"
+	
+endif
+
+if SHIELD_RT-22_LEFT || SHIELD_RT-22_RIGHT
+
+config ZMK_SPLIT
+	default y
+
+endif
