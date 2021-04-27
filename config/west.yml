@@ -4,10 +4,12 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: petejohanson
       url-base: https://github.com/petejohanson
+    - name: krikun98
+      url-base: https://github.com/krikun98
   projects:
     - name: zmk
-      remote: petejohanson
-      revision: zephyr-2.5-upgrade
+      remote: krikun98
+      revision: mouse-prototype
       import: app/west.yml
   self:
     path: config
