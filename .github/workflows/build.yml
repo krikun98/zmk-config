@@ -49,7 +49,7 @@ jobs:
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
         id: west-build-jorne-left
         with:
-          args: 'build "-s zmk/app -b nice_nano -- -DSHIELD=jorne_left -DZMK_CONFIG=/github/workspace/config/jorne"'
+          args: 'build "--pristine -s zmk/app -b nice_nano -- -DSHIELD=jorne_left -DZMK_CONFIG=/github/workspace/config/jorne"'
       - name: Jorne DTS File
         if: ${{ always() }}
         run: cat -n build/zephyr/nice_nano.dts.pre.tmp
@@ -66,7 +66,7 @@ jobs:
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
         id: west-build-jorne-right
         with:
-          args: 'build "--pristine -s zmk/app -b nice_nano -- -DSHIELD=jorne_right -DZMK_CONFIG=/github/workspace/config/jorne"'
+          args: 'build "-s zmk/app -b nice_nano -- -DSHIELD=jorne_right -DZMK_CONFIG=/github/workspace/config/jorne"'
       - name: Jorne Right Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
@@ -80,7 +80,7 @@ jobs:
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
         id: west-build-jian-left
         with:
-          args: 'build "-s zmk/app -b nrfmicro_13 -- -DSHIELD=jian_left -DZMK_CONFIG=/github/workspace/config/jian"'
+          args: 'build "--pristine -s zmk/app -b nrfmicro_13 -- -DSHIELD=jian_left -DZMK_CONFIG=/github/workspace/config/jian"'
       - name: Jian DTS File
         if: ${{ always() }}
         run: cat -n build/zephyr/nrfmicro_13.dts.pre.tmp
@@ -97,7 +97,7 @@ jobs:
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
         id: west-build-jian-right
         with:
-          args: 'build "--pristine -s zmk/app -b nrfmicro_13 -- -DSHIELD=jian_right -DZMK_CONFIG=/github/workspace/config/jian"'
+          args: 'build "-s zmk/app -b nrfmicro_13 -- -DSHIELD=jian_right -DZMK_CONFIG=/github/workspace/config/jian"'
       - name: Jian Right Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
@@ -111,7 +111,7 @@ jobs:
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
         id: west-build-corne-left
         with:
-          args: 'build "-s zmk/app -b nrfmicro_13 -- -DSHIELD=corne_left -DZMK_CONFIG=/github/workspace/config/corne"'
+          args: 'build "--pristine -s zmk/app -b nrfmicro_13 -- -DSHIELD=corne_left -DZMK_CONFIG=/github/workspace/config/corne"'
       - name: Corne DTS File
         if: ${{ always() }}
         run: cat -n build/zephyr/nrfmicro_13.dts.pre.tmp
@@ -128,7 +128,7 @@ jobs:
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
         id: west-build-corne-right
         with:
-          args: 'build "--pristine -s zmk/app -b nrfmicro_13 -- -DSHIELD=corne_right -DZMK_CONFIG=/github/workspace/config/corne"'
+          args: 'build "-s zmk/app -b nrfmicro_13 -- -DSHIELD=corne_right -DZMK_CONFIG=/github/workspace/config/corne"'
       - name: Corne Right Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
