@@ -80,30 +80,30 @@ jobs:
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
         id: west-build-jian-left
         with:
-          args: 'build "-s zmk/app -b nice_nano -- -DSHIELD=jian_left -DZMK_CONFIG=/github/workspace/config/jian"'
+          args: 'build "-s zmk/app -b nrfmicro_13 -- -DSHIELD=jian_left -DZMK_CONFIG=/github/workspace/config/jian"'
       - name: Jian DTS File
         if: ${{ always() }}
-        run: cat -n build/zephyr/nice_nano.dts.pre.tmp
+        run: cat -n build/zephyr/nrfmicro_13.dts.pre.tmp
       - name: Jian Left Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 jian_left_nice_nano.uf2
+        run: cp build/zephyr/zmk.uf2 jian_left_nrfmicro_13.uf2
       - name: Archive (Jian Left)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: jian_left_nice_nano.uf2
+          path: jian_left_nrfmicro_13.uf2
       - name: West Build (Jian Right)
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
         id: west-build-jian-right
         with:
-          args: 'build "--pristine -s zmk/app -b nice_nano -- -DSHIELD=jian_right -DZMK_CONFIG=/github/workspace/config/jian"'
+          args: 'build "--pristine -s zmk/app -b nrfmicro_13 -- -DSHIELD=jian_right -DZMK_CONFIG=/github/workspace/config/jian"'
       - name: Jian Right Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 jian_right_nice_nano.uf2
+        run: cp build/zephyr/zmk.uf2 jian_right_nrfmicro_13.uf2
       - name: Archive (Jian Right)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: jian_right_nice_nano.uf2
+          path: jian_right_nrfmicro_13.uf2
