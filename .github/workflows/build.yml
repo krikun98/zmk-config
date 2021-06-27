@@ -60,7 +60,7 @@ jobs:
       - name: Archive (Manuform Left)
         uses: actions/upload-artifact@v2
         with:
-          name: firmware
+          name: manuform
           path: manuform_left_nrfmicro_13.uf2
       - name: West Build (Manuform Right)
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
@@ -74,5 +74,5 @@ jobs:
       - name: Archive (Manuform Right)
         uses: actions/upload-artifact@v2
         with:
-          name: firmware
+          name: manuform
           path: manuform_right_nrfmicro_13.uf2
