@@ -1,0 +1,11 @@
+file_format: "1"
+id: rt-22
+name: RT-22
+type: shield
+url: TBA
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - rt-22_left
+  - rt-22_right
