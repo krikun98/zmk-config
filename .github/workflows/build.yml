@@ -45,34 +45,34 @@ jobs:
         id: west-zephyr-export
         with:
           args: 'zephyr-export'
-      - name: West Build (Jorne Left)
+      - name: West Build (Ergo42 Left)
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-build-jorne-left
+        id: west-build-ergo42-left
         with:
-          args: 'build "-s zmk/app -b nice_nano -- -DSHIELD=jorne_left -DZMK_CONFIG=/github/workspace/config"'
-      - name: Jorne DTS File
+          args: 'build "-s zmk/app -b nice_nano -- -DSHIELD=ergo42_left -DZMK_CONFIG=/github/workspace/config"'
+      - name: Ergo42 DTS File
         if: ${{ always() }}
         run: cat -n build/zephyr/nice_nano.dts.pre.tmp
-      - name: Jorne Left Kconfig file
+      - name: Ergo42 Left Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 jorne_left_nice_nano.uf2
-      - name: Archive (Jorne Left)
+        run: cp build/zephyr/zmk.uf2 ergo42_left_nice_nano.uf2
+      - name: Archive (Ergo42 Left)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: jorne_left_nice_nano.uf2
-      - name: West Build (Jorne Right)
+          path: ergo42_left_nice_nano.uf2
+      - name: West Build (Ergo42 Right)
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-build-jorne-right
+        id: west-build-ergo42-right
         with:
-          args: 'build "--pristine -s zmk/app -b nice_nano -- -DSHIELD=jorne_right -DZMK_CONFIG=/github/workspace/config"'
-      - name: Jorne Right Kconfig file
+          args: 'build "--pristine -s zmk/app -b nice_nano -- -DSHIELD=ergo42_right -DZMK_CONFIG=/github/workspace/config"'
+      - name: Ergo42 Right Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 jorne_right_nice_nano.uf2
-      - name: Archive (Jorne Right)
+        run: cp build/zephyr/zmk.uf2 ergo42_right_nice_nano.uf2
+      - name: Archive (Ergo42 Right)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: jorne_right_nice_nano.uf2
+          path: ergo42_right_nice_nano.uf2

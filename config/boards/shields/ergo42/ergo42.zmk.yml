@@ -1,0 +1,11 @@
+file_format: "1"
+id: ergo42
+name: Ergo42
+type: shield
+url: https://github.com/Biacco42/Ergo42
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - ergo42_left
+  - ergo42_right

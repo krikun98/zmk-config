@@ -1,0 +1,17 @@
+
+if SHIELD_ERGO42_LEFT
+
+config ZMK_KEYBOARD_NAME
+	default "Ergo42"
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default y
+
+endif
+
+if SHIELD_ERGO42_LEFT || SHIELD_ERGO42_RIGHT
+
+config ZMK_SPLIT
+	default y
+
+endif

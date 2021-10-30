@@ -1,0 +1,46 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define DEF 0
+#define MET 1
+#define SYM 2
+
+
+/ {
+        keymap {
+                compatible = "zmk,keymap";
+
+                default_layer {
+                        bindings = <
+   &kp ESC  &kp TAB   &kp Q     &kp W    &kp E    &kp R   &kp T         &kp Y   &kp U   &kp I     &kp O     &kp P    &kp LBKT &kp BSPC
+   &kp DEL  &kp RCTRL &kp A     &kp S    &kp D    &kp F   &kp G         &kp H   &kp J   &kp K     &kp L     &kp SEMI &kp RBKT &kp RET
+   &mo SYM  &kp LSHFT &kp Z     &kp X    &kp C    &kp V   &kp B         &kp N   &kp M   &kp COMMA &kp DOT   &kp FSLH &kp UP   &kp RSHFT
+   &kp LGUI &kp LCTRL &kp GRAVE &kp BSLH &kp LALT &mo MET &kp SPC       &kp SPC &kp SQT &kp MINUS &kp EQUAL &kp LEFT &kp DOWN &kp RIGHT
+                        >;
+                };
+                meta_layer {
+                        bindings = <
+    &reset &kp N1 &kp N2 &kp N3   &kp N4   &kp N5 &kp LBKT          &kp RBKT &kp N6   &kp N7 &kp N8    &kp N9  &kp N0  &trans
+    &trans &kp F1 &none  &kp INT5 &kp INT4 &none  &none             &kp LEFT &kp DOWN &kp UP &kp RIGHT &none   &none   &trans
+    &trans &kp F2 &kp F3 &kp F4   &kp F5   &kp F6 &kp LBRC          &kp RBRC &kp F7   &kp F8 &kp F9    &kp F10 &kp F11 &kp F12
+    &trans &trans &trans &trans   &trans   &trans &trans            &trans   &trans   &trans &trans    &none   &none   &none
+                        >;
+                };
+
+                symb_layer {
+                        bindings = <
+    &trans &kp EXCL     &kp AT       &kp HASH     &kp DLLR     &kp PRCNT    &kp LBKT        &kp RBKT &kp CRRT &kp AMPS &kp STAR &kp LPAR &kp RPAR &trans
+    &trans &bt BT_CLR   &bootloader  &none        &none        &none        &kp LPAR        &kp RPAR &none    &none    &none    &none    &none    &trans
+    &trans &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &kp LBRC        &kp RBRC &none    &none    &none    &none    &trans   &trans
+    &trans &trans       &trans       &trans       &trans       &trans       &trans          &trans   &trans   &trans   &trans   &trans   &trans   &trans
+                        >;
+                };
+        };
+};
