@@ -5,7 +5,9 @@ name: Build
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build Test
+    container:
+      image: zmkfirmware/zmk-build-arm:2.5
+    name: Build
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -26,53 +28,33 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: West Init
-        uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-init
-        with:
-          args: 'init "-l config"'
+        run: west init -l config
       - name: West Update
-        uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-update
-        with:
-          args: 'update'
-      - name: West Config Zephyr Base
-        uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-config
-        with:
-          args: 'config "--global zephyr.base-prefer configfile"'
-      - name: West Zephyr Export
-        uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-zephyr-export
-        with:
-          args: 'zephyr-export'
-      - name: West Build (Jorne Left)
-        uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-build-jorne-left
-        with:
-          args: 'build "-s zmk/app -b nice_nano -- -DSHIELD=jorne_left -DZMK_CONFIG=/github/workspace/config"'
-      - name: Jorne DTS File
+        run: west update
+      - name: West Zephyr export
+        run: west zephyr-export
+      - name: West Build (Corne-ish Zen Left)
+        run: west build -s zmk/app -b corne-ish_zen_left -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+      - name: Corne-ish Zen DTS File
         if: ${{ always() }}
-        run: cat -n build/zephyr/nice_nano.dts.pre.tmp
-      - name: Jorne Left Kconfig file
+        run: cat -n build/zephyr/corne-ish_zen_left.dts.pre.tmp
+      - name: Corne-ish Zen Left Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 jorne_left_nice_nano.uf2
-      - name: Archive (Jorne Left)
+        run: cp build/zephyr/zmk.uf2 corneish_zen_left.uf2
+      - name: Archive (Corne-ish Zen Left)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: jorne_left_nice_nano.uf2
-      - name: West Build (Jorne Right)
-        uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-build-jorne-right
-        with:
-          args: 'build "--pristine -s zmk/app -b nice_nano -- -DSHIELD=jorne_right -DZMK_CONFIG=/github/workspace/config"'
-      - name: Jorne Right Kconfig file
+          path: corneish_zen_left.uf2
+      - name: West Build (Corne-ish Zen Right)
+        run: west build --pristine -s zmk/app -b corne-ish_zen_right -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+      - name: Corne-ish Zen Right Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 jorne_right_nice_nano.uf2
-      - name: Archive (Jorne Right)
+        run: cp build/zephyr/zmk.uf2 corneish_zen_right.uf2
+      - name: Archive (Corne-ish Zen Right)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: jorne_right_nice_nano.uf2
+          path: corneish_zen_right.uf2
