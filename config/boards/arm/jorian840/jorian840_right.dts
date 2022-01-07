@@ -7,6 +7,6 @@
 #include "jorian840.dtsi"
 
 
-&default_transform {
+&jian_transform {
     col-offset = <22>;
 };
