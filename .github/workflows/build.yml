@@ -45,34 +45,20 @@ jobs:
         id: west-zephyr-export
         with:
           args: 'zephyr-export'
-      - name: West Build (Jorne Left)
+      - name: West Build (Radpad)
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-build-jorne-left
+        id: west-build-radpad
         with:
-          args: 'build "-s zmk/app -b nice_nano -- -DSHIELD=jorne_left -DZMK_CONFIG=/github/workspace/config"'
-      - name: Jorne DTS File
+          args: 'build "-s zmk/app -b nrfmicro_13_52833 -- -DSHIELD=radpad -DZMK_CONFIG=/github/workspace/config"'
+      - name: Radpad DTS File
         if: ${{ always() }}
-        run: cat -n build/zephyr/nice_nano.dts.pre.tmp
-      - name: Jorne Left Kconfig file
+        run: cat -n build/zephyr/nrfmicro_13_52833.dts.pre.tmp
+      - name: Radpad Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 jorne_left_nice_nano.uf2
-      - name: Archive (Jorne Left)
+        run: cp build/zephyr/zmk.uf2 radpad_nrfmicro_13_52833.uf2
+      - name: Archive (Radpad)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: jorne_left_nice_nano.uf2
-      - name: West Build (Jorne Right)
-        uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-build-jorne-right
-        with:
-          args: 'build "--pristine -s zmk/app -b nice_nano -- -DSHIELD=jorne_right -DZMK_CONFIG=/github/workspace/config"'
-      - name: Jorne Right Kconfig file
-        run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 jorne_right_nice_nano.uf2
-      - name: Archive (Jorne Right)
-        uses: actions/upload-artifact@v2
-        with:
-          name: firmware
-          path: jorne_right_nice_nano.uf2
+          path: radpad_nrfmicro_13_52833.uf2
