@@ -22,42 +22,41 @@
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// |  GUI |   ~  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  [   | GUI/] |
-//        | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |CTRL/'|
-//        | LALT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | RALT |
-//                           | RSE | SPC | LWR |   | LWR | BKSP | RSE |
+// | UNDO/COPY | = |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | - | REDO/PASTE |
+//        | CAPS |  A  |  S  |  D/SHIFT  |  F  |  G  |   |  H  |  J   |  K/SHIFT  |  L  |  '  | TK |
+//        | ESC |  Z/ALT  |  X  |  C  |  V/CTRL  |  B  |   |  N  |  M/CTRL   |  ,  |  .  |  //ALT  | ; |
+//                           | TAB | SPC | RSE |   | LWR | BKSP | ENTER |
                         bindings = <
-   &kp LWIN &kp GRAVE &kp Q &kp W &kp E &kp R &kp T &kp Y         &kp U  &kp I     &kp O   &kp P    &kp LBKT &mt RWIN RBKT
-            &kp LCTRL &kp A &kp S &kp D &kp F &kp G &kp H         &kp J  &kp K     &kp L   &kp SEMI &mt RCTRL SQT
-            &kp LALT  &kp Z &kp X &kp C &kp V &kp B &kp N         &kp M  &kp COMMA &kp DOT &kp FSLH &mt RALT BSLH
-                         &lt RSE TAB &mt LSHFT SPACE &lt LWR RET &lt LWR ESC &mt RSHFT BSPC &lt RSE DEL
+   &mt LC(Z) LC(C) &kp EQUAL &kp Q &kp W &kp E &kp R &kp T         &kp Y  &kp U  &kp I  &kp O  &kp P  &kp MINUS &mt LC(LS(Z)) LC(V)
+            &kp CAPS &kp A &kp S &mt D LSHIFT  &kp F &kp G        &kp H   &kp J  &mt K LSHIFT &kp L &kp SQT &kp
+            &kp ESC &mt Z LALT &kp X &kp C &mt V LCTRL &kp B       &kp N &mt M CTRL  &kp COMMA &kp DOT &mt FSLH LALT &kp SEMI
+                         &lt LWR TAB &kp SPACE &tog RSE &tog LWR &kp BKSP &lt RSE ENTER
                         >;
                 };
                 lower_layer {
 // -----------------------------------------------------------------------------------------
-// |     |  _  |  F1 |  F2 |  F3 |  F4 |  F5 |   |  F6 |  F7 |  F8 |  F9 | F10 | F11 | F12 |
-//       |  +  |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |  -  |
-//       |  =  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |     |
+// |UNDO/COPY |  `  |  !  |  "  |  ₤  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |  |  | REDO/PASTE |
+//          |    |  1  |  2  |  3/SHIFT  |  4  |  5  |   |  6  |  7  |  8/SHIFT  |  9  |  0  |     |  
+//          |    |  ALT |  # |    | CTRL |    |   |  DEL |  CTRL |    |  [  |  ] |   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &trans &kp UNDER      &kp F1   &kp F2 &kp F3   &kp F4   &kp F5           &kp F6    &kp F7   &kp F8   &kp F9   &kp F10  &kp F11 &mt RGUI F12
-          &mt LCTRL PLUS &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT        &kp CARET &kp AMPS &kp STAR &kp LPAR &kp RPAR &mt RCTRL MINUS
-          &mt LALT EQUAL &kp N1   &kp N2 &kp N3   &kp N4   &kp N5           &kp N6    &kp N7   &kp N8   &kp N9   &kp N0   &trans
-                                              &lt ADJ TAB &trans &trans   &trans &trans &lt ADJ DEL
+   &mt LC(Z) LC(C) &kp GRAVE &kp EXCL &kp DQT &kp LS(3) &kp DLLR &kp PRCNT        &kp CARET &kp AMPS &kp STAR &kp LPAR &kp RPAR &kp NON_US_BSLH &mt LC(LS(Z)) LC(V)
+                       &kp  &kp N1  &kp N2 &mt N3 LSHIFT &kp N4   &kp N5         &kp N6  &kp N7 &mt N8 LSHIFT   &kp N9   &kp N0   &kp 
+                       &kp  &kp LALT &kp NON_US_HASH &kp &kp LCTRL &kp           &kp DEL &kp LCTRL &kp LALT &kp LBKT &kp RBKT &kp
+                                  &lt LWR TAB &kp SPACE &tog RSE &tog LWR &kp BKSP &lt RSE ENTER
                         >;
                 };
 
                 raise_layer {
 // -----------------------------------------------------------------------------------------
-// |     | NMLK |  /  |  7  |  8  |  9  |  -  |   | VOLU| HOME| PRSC| PGUP| SCLK| CLCK|     |
-//       | CTRL |  *  |  4  |  5  |  6  |  +  |   | MUT | LEFT|  UP | RGHT| INS | APP |
-//       |      |  0  |  1  |  2  |  3  |  .  |   | VOLD| END | DOWN| PGDN| PAUS|     |
-//                          |     |     | ADJ |   | ADJ |     |     |
+// |     |      |     |  UP | PREV| NEXT|VOL U|   |  /  |  7  |  8  |  9  |  -  |     |     |
+//       | CTRL | LEFT|DOWN |RIGHT|  PP |VOL D|   |  *  |  4  |5/SHFT|  6 |  +  |     |
+//       |      | ALT |     |     |CTRL | MUTE|   |  0  |  1  |  2   |  3 |  .  |     |
                         bindings = <
-   &trans &kp KP_NUM      &kp KP_SLASH    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS        &kp C_VOL_UP &kp HOME &kp PSCRN &kp PG_UP &kp SLCK &kp CAPS &trans
-          &mt LCTRL EQUAL &kp KP_MULTIPLY &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS         &kp C_MUTE   &kp LEFT &kp UP    &kp RIGHT &kp INS  &mt RCTRL K_APP
-          &trans          &kp KP_N0       &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_DOT          &kp C_VOL_DN &kp END  &kp DOWN  &kp PG_DN &kp PAUSE_BREAK &trans
-                                                           &trans &trans &lt ADJ RET   &lt ADJ ESC &trans &trans
+   &trans    &kp        &kp      &kp UP   &kp C_PREV &kp C_NEXT &kp C_VOL_UP       &kp KP_SLASH    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS &kp   &trans
+          &kp LCTRL  &kp LEFT &kp DOWN &kp RIGHT  &kp C_PP   &kp C_VOL_DN       &kp KP_MULTIPLY &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS  &kp
+          &kp      &kp LALT   &kp      &kp        &kp LCTRL  &kp C_MUTE        &kp KP_N0       &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_DOT &trans
+                                     &lt LWR TAB &kp SPACE &tog RSE &tog LWR &kp BKSP &lt RSE ENTER
                         >;
                 };
                 adjust_layer {
