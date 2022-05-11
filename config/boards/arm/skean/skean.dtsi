@@ -19,6 +19,7 @@
 		zmk,kscan = &kscan0;
 		zmk,matrix_transform = &default_transform;
         zephyr,console = &cdc_acm_uart;
+		zmk,battery = &vbatt;
 	};
 
 	default_transform: keymap_transform_0 {
@@ -92,7 +93,7 @@
 	};
 
 
-	vbatt {
+	vbatt: vbatt {
 		compatible = "zmk,battery-voltage-divider";
 		label = "BATTERY";
 		io-channels = <&adc 0>;
