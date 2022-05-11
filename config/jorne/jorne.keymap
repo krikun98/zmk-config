@@ -7,7 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/ext_power.h>
 
 #define DEF 0
 #define LWR 1
@@ -62,16 +62,16 @@
                         >;
                 };
                 adjust_layer {
-// -----------------------------------------------------------------------------------------------
-// | RST | RGBTOG| BT0 | BT1 | BT2 | BT3  | BT4 |   | BT4 | BT3  | BT2 | BT1 | BT0 | RGBTOG| RST |
-// |     | MOD+  | HUE+| SAT+| VAL+|      | BLDR|   | BLDR|      | VAL+| SAT+| HUE+| MOD+  |
-//       | MOD-  | HUE-| SAT-| VAL-|      |     |   |     |      | VAL-| SAT-| HUE-| MOD-  |
-//                           |     | BTCLR|     |   |     | BTCLR|     |
+// -----------------------------------------------------------------------------------------
+// | RST | BLDR |     |     |     |     |     |   |     |     |     |     |     | BLDR | RST |
+//       | BTCLR| BT0 | BT1 | BT2 | BT3 | BT4 |   | BT4 | BT3 | BT2 | BT1 | BT0 | BTCLR|
+//       |      |     |     |     |     |     |   |     |     |     |     |     |      |
+//                          |     |     |     |   |     |     |     |
                         bindings = <
-   &reset &rgb_ug RGB_TOG  &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3 &bt BT_SEL 4   &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2    &bt BT_SEL 1    &bt BT_SEL 0    &rgb_ug RGB_TOG &reset
-          &rgb_ug RGB_EFF  &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &none        &bootloader    &bootloader  &none        &rgb_ug RGB_BRI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF
-          &rgb_ug RGB_EFR  &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &none        &none          &none        &none        &rgb_ug RGB_BRD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_EFR
-                                                                        &trans &bt BT_CLR &trans         &trans &bt BT_CLR &trans
+   &reset &bootloader       &none        &none        &none        &none        &none              &none        &none        &none        &none        &none         &bootloader &reset
+          &bt BT_CLR        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4       &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  &bt BT_CLR
+          &ext_power EP_TOG &none        &none        &none        &none        &none              &none        &none        &none        &none        &none         &ext_power EP_TOG
+                                                                    &trans &none &trans   &trans &none &trans
                         >;
                 };
         };
