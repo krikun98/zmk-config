@@ -1,0 +1,10 @@
+file_format: "1"
+id: radpad
+name: Radpad
+type: shield
+url: https://twitter.com/brandon_schlack/status/1321476594398056448
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
