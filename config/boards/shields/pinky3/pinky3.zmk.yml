@@ -1,0 +1,11 @@
+file_format: "1"
+id: pinky3
+name: Pinky3
+type: shield
+url: https://github.com/tamanishi/Pinky3
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - pinky3_left
+  - pinky3_right
