@@ -16,4 +16,4 @@ include:
   - board: nrfmicro_13_52833
     shield: pinky3_left
   - board: nrfmicro_13_52833
-    shield: pinky3_left
+    shield: pinky3_right
