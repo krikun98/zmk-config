@@ -32,7 +32,8 @@
    &mt LCTRL GRAVE &kp A &kp S &kp D &kp F &kp G &none &none &kp H   &kp J  &kp K     &kp L   &kp SEMI &mt RCTRL SQT
    &kp LALT        &kp Z &kp X &kp C &kp V &kp B &none &none &kp N   &kp M  &kp COMMA &kp DOT &kp FSLH &mt RALT BSLH
                       &lt RSE TAB &mt LSHFT SPACE &lt LWR RET &none &none &lt LWR ESC &mt RSHFT BSPC &lt RSE DEL
-                        >;`jjhynik  4356678<KJkj,                };
+                        >;
+                    };
                 lower_layer {
                         label = "SYM";
 // -----------------------------------------------------------------------------------------
