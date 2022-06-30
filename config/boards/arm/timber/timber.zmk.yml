@@ -1,0 +1,11 @@
+file_format: "1"
+id: timber
+name: Timber
+type: board
+arch: arm
+features:
+  - keys
+outputs:
+  - usb
+  - ble
+url: https://www.keyboardlab.com/products/60-gateron-switch-natural-wood-mechanical-keyboard
