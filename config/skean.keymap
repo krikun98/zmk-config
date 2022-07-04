@@ -17,7 +17,16 @@
 &mt { quick_tap_ms = <200>; };
 
 / {
-        matrix_transform=&crkbd_transform;
+  chosen {
+    zmk,matrix_transform = &crkbd_transform;
+  };
+};
+
+&crkbd_transform {
+    col-offset = <6>;
+};
+
+/ {
         keymap {
                 compatible = "zmk,keymap";
 
