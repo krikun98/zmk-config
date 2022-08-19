@@ -19,6 +19,7 @@
 		zmk,kscan = &kscan0;
 		zmk,matrix_transform = &default_transform;
         zephyr,console = &cdc_acm_uart;
+		zmk,battery = &vbatt;
 	};
 
 	default_transform: keymap_transform_0 {
@@ -44,6 +45,14 @@
 		label = "KSCAN";
 		diode-direction = "col2row";
     };
+
+	vbatt: vbatt {
+		compatible = "zmk,battery-voltage-divider";
+		label = "BATTERY";
+		io-channels = <&adc 2>;
+		output-ohms = <2000000>;
+		full-ohms = <(2000000 + 820000)>;
+	};
 };
 
 
