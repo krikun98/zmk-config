@@ -17,19 +17,15 @@ include:
     shield: jorne_left
   - board: nrfmicro_13
     shield: jorne_right
-  - board: nrfmicro_13
-    shield: corne_left
-  - board: nrfmicro_13
-    shield: corne_right
-  - board: nrfmicro_13
-    shield: jian_left
-  - board: nrfmicro_13
-    shield: jian_right
-  - board: skean_left
-  - board: skean_right
-  - board: jorian840_left
-  - board: jorian840_right
+  - board: nrfmicro_13_52833
+    shield: jorne_left
+  - board: nrfmicro_13_52833
+    shield: jorne_right
   - board: nrfmicro_13_52833
     shield: radpad
+  - board: jorian840_left
+  - board: jorian840_right
+  - board: skean_left
+  - board: skean_right
   - board: wenki44_left
   - board: wenki44_right
