@@ -1,0 +1,12 @@
+# Skean board configuration
+
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+config BOARD_SKEAN_LEFT
+	bool "skean_left"
+	depends on SOC_NRF52833_QIAA
+
+config BOARD_SKEAN_RIGHT
+	bool "skean_right"
+	depends on SOC_NRF52833_QIAA

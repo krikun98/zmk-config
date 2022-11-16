@@ -25,3 +25,5 @@ include:
     shield: jian_left
   - board: nrfmicro_13
     shield: jian_right
+  - board: skean_left
+  - board: skean_right
