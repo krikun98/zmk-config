@@ -27,3 +27,5 @@ include:
     shield: jian_right
   - board: skean_left
   - board: skean_right
+  - board: jorian840_left
+  - board: jorian840_right
