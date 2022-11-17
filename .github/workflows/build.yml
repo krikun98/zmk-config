@@ -133,9 +133,9 @@ jobs:
           if [[ ( -n "${{ matrix.shield }}" && "${{ matrix.board }}" =~ $non_primary ) || "${{ matrix.shield }}" =~ $non_primary ]]
           then
             echo "primary=false" >> $GITHUB_ENV
-            echo "CONFIG_ZMK_KEYBOARD_NAME=${{ matrix.name }}" >> "${{ needs.env-setup.outputs.config_path }}"/prj.conf
           else
             echo "primary=true" >> $GITHUB_ENV
+            cmake -UCONFIG_ZMK_KEYBOARD_NAME -DCONFIG_ZMK_KEYBOARD_NAME="${{ matrix.name }}"
           fi
 
       - name: West Build (${{ env.display_name }})
@@ -148,7 +148,7 @@ jobs:
         run: |
           if [[ "${{ env.primary }}" ]]
           then
-            rm "${{ needs.env-setup.outputs.config_path }}"/prj.conf
+            cmake -UCONFIG_ZMK_KEYBOARD_NAME
           fi
 
       - name: ${{ env.display_name }} Kconfig file
