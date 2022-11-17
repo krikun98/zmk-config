@@ -25,4 +25,5 @@ include:
     name: ["Jorian840 Omron", "Jorian840 Cobalt"]
   - board: [skean_left, skean_right]
     name: ["Skean T1", "Skean Alps"]
+  - board: [dao_left, dao_right]
   - board: [wenki44_left, wenki44_right]
