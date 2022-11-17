@@ -7,11 +7,13 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
 #define DEF 0
 #define LWR 1
 #define RSE 2
 #define ADJ 3
+#define GME 4
 
 &lt { quick_tap_ms = <200>; };
 &mt { quick_tap_ms = <200>; };
@@ -69,8 +71,21 @@
                         bindings = <
    &reset &bootloader  &none        &none        &none        &none        &none              &none        &none        &none        &none        &none         &bootloader &reset
           &bt BT_CLR   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4       &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  &bt BT_CLR
-          &none        &none        &none        &none        &none        &none              &none        &none        &none        &none        &none         &none
+          &out OUT_TOG &tog GME     &none        &none        &none        &none              &none        &none        &none        &none        &tog GME      &out OUT_TOG
                                                                     &trans &none &trans   &trans &none &trans
+                        >;
+                };
+                gaming_layer {
+// -----------------------------------------------------------------------------------------
+// |  GUI |   ~  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  [   | GUI/] |
+//        | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |CTRL/'|
+//        | LALT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | RALT |
+//                           | RSE | SPC | LWR |   | LWR | BKSP | RSE |
+                        bindings = <
+   &kp TAB  &kp GRAVE &kp Q &kp W &kp E &kp R &kp T &kp Y         &kp U  &kp I     &kp O   &kp P    &kp BSPC &mt RWIN RBKT
+            &kp LCTRL &kp A &kp S &kp D &kp F &kp G &kp H         &kp J  &kp K     &kp L   &kp SEMI &mt RCTRL SQT
+            &kp LALT  &kp Z &kp X &kp C &kp V &kp B &kp N         &kp M  &kp COMMA &kp DOT &tog GME &mt RALT BSLH
+                         &kp SPACE &kp LSHFT &kp RET &kp ESC &kp RSHFT &kp DEL
                         >;
                 };
         };
