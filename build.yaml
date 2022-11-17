@@ -1,0 +1,3 @@
+include:
+  - board: corneish_zen_left
+  - board: corneish_zen_right
