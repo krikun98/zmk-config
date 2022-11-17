@@ -21,7 +21,10 @@ for el in data.get("include"):
             for shield in shields:
                 new_el = {}
                 if name is not None:
-                    new_el["name"] = name
+                    new_el["name"] = name.replace(" ", "\ ")
+                    new_el["file_name_suffix"] = "-" + name.replace(" ", "-").lower()
+                else:
+                    new_el["file_name_suffix"] = ""
                 new_el["board"] = board
                 if shield is not None:
                     new_el["shield"] = shield

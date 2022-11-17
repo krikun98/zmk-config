@@ -81,17 +81,19 @@ jobs:
       matrix: ${{ fromJson(needs.matrix.outputs.build_matrix) }}
     steps:
       - name: Prepare variables
-        shell: sh -x {0}
+        shell: bash -x {0}
+        env:
+          file_name_suffix: ""
         run: |
           if [ -n "${{ matrix.shield }}" ]
           then
             echo "extra_cmake_args=-DSHIELD=\"${{ matrix.shield }}\"" >> $GITHUB_ENV
-            echo "artifact_name=${{ matrix.shield }}-${{ matrix.board }}-${{ matrix.name }}-zmk" >> $GITHUB_ENV
-            echo "display_name=${{ matrix.shield }} - ${{ matrix.board }}-${{ matrix.name }}" >> $GITHUB_ENV
+            echo "artifact_name=${{ matrix.shield }}-${{ matrix.board }}${{ matrix.file_name_suffix }}-zmk" >> $GITHUB_ENV
+            echo "display_name=${{ matrix.shield }} - ${{ matrix.board }}${{ matrix.file_name_suffix }}" >> $GITHUB_ENV
           else
             echo "extra_cmake_args=" >> $GITHUB_ENV
-            echo "artifact_name=${{ matrix.board }}-${{ matrix.name }}-zmk" >> $GITHUB_ENV
-            echo "display_name=${{ matrix.board }}-${{ matrix.name }}" >> $GITHUB_ENV
+            echo "artifact_name=${{ matrix.board }}${{ matrix.file_name_suffix }}-zmk" >> $GITHUB_ENV
+            echo "display_name=${{ matrix.board }}${{ matrix.file_name_suffix }}" >> $GITHUB_ENV
           fi
           echo "zephyr_version=${ZEPHYR_VERSION}" >> $GITHUB_ENV
 
@@ -130,26 +132,22 @@ jobs:
         shell: bash -x {0}
         run: |
           non_primary_re="_right$"
-          if [[ ( -n "${{ matrix.shield }}" && "${{ matrix.board }}" =~ $non_primary ) || "${{ matrix.shield }}" =~ $non_primary ]]
+          if [[ ( -n "${{ matrix.shield }}" && "${{ matrix.shield }}" =~ $non_primary_re ) || "${{ matrix.board }}" =~ $non_primary_re ]]
           then
-            echo "primary=false" >> $GITHUB_ENV
+            echo "name=" >> $GITHUB_ENV
           else
-            echo "primary=true" >> $GITHUB_ENV
-            cmake -UCONFIG_ZMK_KEYBOARD_NAME -DCONFIG_ZMK_KEYBOARD_NAME="${{ matrix.name }}"
+            echo "name=-DCONFIG_ZMK_KEYBOARD_NAME=\\\"${{ matrix.name }}\\\"" >> $GITHUB_ENV
           fi
 
       - name: West Build (${{ env.display_name }})
         shell: sh -x {0}
-        run: west build -s zmk/app -b ${{ matrix.board }} -- -DZMK_CONFIG=${GITHUB_WORKSPACE}/${{ needs.env-setup.outputs.config_path }} ${{ env.extra_cmake_args }} ${{ matrix.cmake-args }}
+        run: west build -s zmk/app -b ${{ matrix.board }} -- -DZMK_CONFIG=${GITHUB_WORKSPACE}/${{ needs.env-setup.outputs.config_path }} ${{ env.extra_cmake_args }} ${{ matrix.cmake-args }} ${{ env.name }}
 
       - name: Remove name from config
         if: ${{ matrix.name }}
         shell: bash -x {0}
         run: |
-          if [[ "${{ env.primary }}" ]]
-          then
-            cmake -UCONFIG_ZMK_KEYBOARD_NAME
-          fi
+          echo "name=" >> $GITHUB_ENV
 
       - name: ${{ env.display_name }} Kconfig file
         run: grep -v -e "^#" -e "^$" build/zephyr/.config | sort
