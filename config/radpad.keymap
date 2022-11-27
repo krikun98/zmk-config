@@ -14,6 +14,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
+            label = "MAIN";
             bindings = <
                 &kp C_MUTE                     &kp C_PP
                 &kp KP_N7 &kp KP_N8 &kp KP_N9  &kp KP_MINUS
@@ -26,6 +27,7 @@
         };
 
         lower_layer {
+            label = "FKEY";
             bindings = <
                 &kp C_MUTE              &kp C_PP
                 &kp F21 &kp F22 &kp F23 &kp KP_SLASH
@@ -38,6 +40,7 @@
         };
 
         adjust_layer {
+            label = "ADJ";
             bindings = <
                 &kp C_MUTE               &kp C_PP
                 &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3
