@@ -19,7 +19,7 @@
 		zmk,kscan = &kscan0;
 		zmk,matrix_transform = &jian_transform;
 	        zephyr,console = &cdc_acm_uart;
-		zmk, battery = &vbatt;
+		zmk,battery = &vbatt;
 	};
 
     jian_transform: keymap_transform_0 {
