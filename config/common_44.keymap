@@ -16,8 +16,8 @@
 #define GME 4
 #define GLR 5
 
-&lt { quick_tap_ms = <200>; };
-&mt { quick_tap_ms = <200>; };
+&lt { quick-tap-ms = <200>; };
+&mt { quick-tap-ms = <200>; };
 
 / {
         keymap {
