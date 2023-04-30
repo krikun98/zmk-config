@@ -74,10 +74,10 @@
 //       |      |     |     |     |     |     |   |     |     |     |     |     |      |
 //                          |     |     |     |   |     |     |     |
                         bindings = <
-   &reset &bootloader  &none        &none        &none        &none        &none              &none        &none        &none        &none        &none         &bootloader &reset
-          &bt BT_CLR   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4       &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  &bt BT_CLR
-          &out OUT_TOG &tog GME     &none        &none        &none        &none              &none        &none        &none        &none        &tog GME      &out OUT_TOG
-                                                                    &trans &none &trans   &trans &none &trans
+   &sys_reset &bootloader  &none        &none        &none        &none        &none              &none        &none        &none        &none        &none         &bootloader &sys_reset
+              &bt BT_CLR   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4       &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  &bt BT_CLR
+              &out OUT_TOG &tog GME     &none        &none        &none        &none              &none        &none        &none        &none        &tog GME      &out OUT_TOG
+                                                                        &trans &none &trans   &trans &none &trans
                         >;
                 };
                 gaming_layer {

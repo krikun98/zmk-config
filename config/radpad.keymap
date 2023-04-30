@@ -45,7 +45,7 @@
                 &kp C_MUTE               &kp C_PP
                 &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3
                 &none        &none        &none        &bt BT_CLR
-                &ext_power EP_ON        &ext_power EP_OFF        &reset       &bootloader
+                &ext_power EP_ON        &ext_power EP_OFF        &sys_reset       &bootloader
                 &trans       &trans       &none        &ext_power EP_TOG
             >;
 
