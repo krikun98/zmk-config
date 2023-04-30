@@ -27,3 +27,4 @@ include:
     name: ["Skean T1", "Skean Alps", "Skean MA"]
   - board: [dao_left, dao_right]
   - board: [wenki44_left, wenki44_right]
+  - board: [corneish_zen_v1_left, corneish_zen_v1_right]
