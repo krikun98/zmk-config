@@ -10,3 +10,15 @@
 &jian_transform {
     col-offset = <22>;
 };
+
+&corjik_transform {
+    col-offset = <22>;
+};
+
+&fifi_transform {
+    col-offset = <22>;
+};
+
+&ferris_transform {
+    col-offset = <22>;
+};

@@ -1,5 +1,6 @@
 identifier: jorian840
 name: Jorian840
+url: https://github.com/krikun98/jorian840
 type: keyboard
 arch: arm
 toolchain:
@@ -7,13 +8,10 @@ toolchain:
   - gnuarmemb
   - xtools
 supported:
-  - gpio
-  - i2c
-  - counter
-  - spi
+  - adc
   - usb_device
-  - lsm303dlhc
-  - nvs
-  - can
-  - kscan
   - ble
+  - ieee802154
+  - pwm
+  - watchdog
+  - gpio

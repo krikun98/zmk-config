@@ -1,6 +1,7 @@
 file_format: "1"
 id: jorian840
 name: Jorian840
+url: https://github.com/krikun98/jorian840
 type: board
 arch: arm
 features:
@@ -8,4 +9,6 @@ features:
 outputs:
   - usb
   - ble
-url: https://github.com/krikun98/jorian840
+siblings:
+  - jorian840_left
+  - jorian840_right
