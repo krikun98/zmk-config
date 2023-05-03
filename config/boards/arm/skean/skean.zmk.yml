@@ -1,6 +1,7 @@
 file_format: "1"
 id: skean
 name: Skean
+url: https://github.com/krikun98/Skean
 type: board
 arch: arm
 features:
@@ -8,4 +9,6 @@ features:
 outputs:
   - usb
   - ble
-url: https://github.com/krikun98/skean
+siblings:
+  - skean_left
+  - skean_right
