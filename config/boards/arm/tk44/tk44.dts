@@ -18,7 +18,7 @@
 		zephyr,flash = &flash0;
 		zmk,kscan = &kscan0;
 		zmk,matrix_transform = &jian_transform;
-	        zephyr,console = &cdc_acm_uart;
+        zephyr,console = &cdc_acm_uart;
 		zmk,battery = &vbatt;
 	};
 
@@ -89,7 +89,7 @@
 		label = "BATTERY";
 		io-channels = <&adc 0>;
 		output-ohms = <2000000>;
-		full-ohms = <(2000000 + 820000)>;
+		full-ohms = <(2000000 + 806000)>;
 	};
 };
 

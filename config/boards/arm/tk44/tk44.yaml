@@ -1,10 +1,12 @@
 identifier: tk44
 name: tk44
 type: keyboard
+url: https://github.com/Ladniy/TK44
 arch: arm
 toolchain:
   - zephyr
   - gnuarmemb
+  - xtools
 supported:
   - adc
   - usb_device
@@ -12,3 +14,4 @@ supported:
   - ieee802154
   - pwm
   - watchdog
+  - gpio

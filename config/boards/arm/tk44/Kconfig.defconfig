@@ -13,6 +13,9 @@ config USB_NRFX
 
 endif # USB_DEVICE_STACK
 
+config BOARD
+	default "tk44"
+
 config BT_CTLR
 	default BT
 
