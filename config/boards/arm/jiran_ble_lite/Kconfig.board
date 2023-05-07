@@ -1,7 +1,7 @@
-# Jiran BLE Lite board configuration
-
+#
 # Copyright (c) 2021 The ZMK Contributors
 # SPDX-License-Identifier: MIT
+#
 
 config BOARD_JIRAN_BLE_LITE_LEFT
 	bool "jiran_ble_lite_left"

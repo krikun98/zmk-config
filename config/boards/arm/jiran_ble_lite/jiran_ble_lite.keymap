@@ -33,11 +33,11 @@
 // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                        bindings = <
-          &kp GRAVE &kp F1 &kp F2   &kp F3   &kp F4    &kp F5      &kp F6       &kp F7    &kp F8   &kp F9    &kp F10         &kp EQUAL
- &kp F11  &kp TAB   &none  &kp HOME &reset   &none     &none       &kp C_VOL_UP &kp PG_UP &reset   &kp HOME  &kp INS         &kp DEL       &kp F12
-          &kp LSFT  &none  &kp LEFT &kp UP   &kp RIGHT &none       &kp C_MUTE   &kp LEFT  &kp UP   &kp RIGHT &kp PSCRN       &mt RSFT SLCK
-          &kp LCTL  &none  &kp END  &kp DOWN &none     &none       &kp C_VOL_DN &kp PG_DN &kp DOWN &kp END   &kp PAUSE_BREAK &kp RCTL
-                                         &trans &trans  &trans    &trans &trans &trans
+          &kp GRAVE &kp F1 &kp F2   &kp F3     &kp F4    &kp F5      &kp F6       &kp F7    &kp F8     &kp F9    &kp F10         &kp EQUAL
+ &kp F11  &kp TAB   &none  &kp HOME &sys_reset &none     &none       &kp C_VOL_UP &kp PG_UP &sys_reset &kp HOME  &kp INS         &kp DEL       &kp F12
+          &kp LSFT  &none  &kp LEFT &kp UP     &kp RIGHT &none       &kp C_MUTE   &kp LEFT  &kp UP     &kp RIGHT &kp PSCRN       &mt RSFT SLCK
+          &kp LCTL  &none  &kp END  &kp DOWN   &none     &none       &kp C_VOL_DN &kp PG_DN &kp DOWN   &kp END   &kp PAUSE_BREAK &kp RCTL
+                                           &trans &trans  &trans    &trans &trans &trans
                        >;
                };
         };

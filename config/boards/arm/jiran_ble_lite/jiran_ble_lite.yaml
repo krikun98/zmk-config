@@ -1,5 +1,6 @@
 identifier: jiran_ble_lite
 name: Jiran BLE Lite
+url: https://github.com/Ladniy/jiran-ble-lite
 type: keyboard
 arch: arm
 toolchain:
@@ -7,13 +8,10 @@ toolchain:
   - gnuarmemb
   - xtools
 supported:
-  - gpio
-  - i2c
-  - counter
-  - spi
+  - adc
   - usb_device
-  - lsm303dlhc
-  - nvs
-  - can
-  - kscan
   - ble
+  - ieee802154
+  - pwm
+  - watchdog
+  - gpio
