@@ -1,0 +1,17 @@
+identifier: dnkr66
+name: dnkr66
+type: keyboard
+url: https://github.com/Ladniy/DNKR66
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - adc
+  - usb_device
+  - ble
+  - ieee802154
+  - pwm
+  - watchdog
+  - gpio
