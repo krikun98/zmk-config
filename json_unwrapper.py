@@ -10,12 +10,15 @@ for el in data.get("include"):
     names = el.get("name")
     boards = el.get("board")
     shields = el.get("shield")
+    flags = el.get("flags")
     if type(names) != list:
         names = [names]
     if type(boards) != list:
         boards = [boards]
     if type(shields) != list:
         shields = [shields]
+    if flags is not None and type(flags) != list:
+        flags = [flags]
     for name in names:
         for board in boards:
             for shield in shields:
@@ -28,5 +31,11 @@ for el in data.get("include"):
                 new_el["board"] = board
                 if shield is not None:
                     new_el["shield"] = shield
+                if flags:
+                    new_el["flags"] = ""
+                    if "no_crystal" in flags:
+                        new_el["flags"] += r"-DCONFIG_CLOCK_CONTROL_NRF=y -DCONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y "
+                    if "screen" in flags:
+                        new_el["flags"] += r"-DCONFIG_ZMK_DISPLAY=y "
                 new_data["include"].append(new_el)
 print(json.dumps(new_data))

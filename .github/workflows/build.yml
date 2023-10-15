@@ -139,15 +139,27 @@ jobs:
             echo "name=-DCONFIG_ZMK_KEYBOARD_NAME=\\\"${{ matrix.name }}\\\"" >> $GITHUB_ENV
           fi
 
+      - name: Insert flags into config
+        if: ${{ matrix.flags }}
+        shell: bash -x {0}
+        run: |
+          echo "flags=${{ matrix.flags }}" >> $GITHUB_ENV
+
       - name: West Build (${{ env.display_name }})
         shell: sh -x {0}
-        run: west build -s zmk/app -b ${{ matrix.board }} -- -DZMK_CONFIG=${GITHUB_WORKSPACE}/${{ needs.env-setup.outputs.config_path }} ${{ env.extra_cmake_args }} ${{ matrix.cmake-args }} ${{ env.name }}
+        run: west build -s zmk/app -b ${{ matrix.board }} -- -DZMK_CONFIG=${GITHUB_WORKSPACE}/${{ needs.env-setup.outputs.config_path }} ${{ env.extra_cmake_args }} ${{ matrix.cmake-args }} ${{ env.name }} ${{env.flags}}
 
       - name: Remove name from config
         if: ${{ matrix.name }}
         shell: bash -x {0}
         run: |
           echo "name=" >> $GITHUB_ENV
+
+      - name: Remove flags from config
+        if: ${{ matrix.flags }}
+        shell: bash -x {0}
+        run: |
+          echo "flags=" >> $GITHUB_ENV
 
       - name: ${{ env.display_name }} Kconfig file
         run: grep -v -e "^#" -e "^$" build/zephyr/.config | sort

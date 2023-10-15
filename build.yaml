@@ -16,14 +16,22 @@ include:
   - board: nrfmicro_13
     shield: [jorne_left, jorne_right]
     name: "Jorne Brass"
+    flags: ["screen"]
   - board: nrfmicro_13_52833
     shield: [jorne_left, jorne_right]
-    name: ["Jorne Alps", "Sporne", "RT-22"]
+    name: ["Jorne Alps", "Sporne"]
+    flags: ["screen"]
+  - board: nrfmicro_13_52833
+    shield: [jorne_left, jorne_right]
+    name: ["RT-22"]
   - board: nrfmicro_13_52833
     shield: radpad
   - board: [jorian840_left, jorian840_right]
     name: ["Jorian840 Omron", "Jorian840 Cobalt", "wEnki44"]
   - board: [skean_left, skean_right]
-    name: ["Skean T1", "Skean Alps", "Skean MA", "Skean Zilent", "Skean DG"]
+    name: ["Skean T1", "Skean Alps", "Skean DG"]
+  - board: [skean_left, skean_right]
+    name: ["Skean MA", "Skean Zilent"]
+    flags: ["no_crystal"]
   - board: [dao_left, dao_right]
   - board: [corneish_zen_v1_left, corneish_zen_v1_right]
