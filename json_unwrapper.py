@@ -34,7 +34,11 @@ for el in data.get("include"):
                 if flags:
                     new_el["flags"] = ""
                     if "no_crystal" in flags:
-                        new_el["flags"] += r"-DCONFIG_CLOCK_CONTROL_NRF=y -DCONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y "
+                        new_el["flags"] += (
+                            "-DCONFIG_CLOCK_CONTROL_NRF=y "
+                            "-DCONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y "
+                            "-DCONFIG_CLOCK_CONTROL_NRF_K32SRC_500PPM=y "
+                        )
                     if "screen" in flags:
                         new_el["flags"] += r"-DCONFIG_ZMK_DISPLAY=y "
                 new_data["include"].append(new_el)
