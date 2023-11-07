@@ -15,11 +15,11 @@
 include:
   - board: nrfmicro_13
     shield: [jorne_left, jorne_right]
-    name: "Jorne Brass"
+    name: ["Jorne Blues", "Jorne Brass"]
     flags: ["screen"]
   - board: nrfmicro_13_52833
     shield: [jorne_left, jorne_right]
-    name: ["Jorne Alps", "Sporne"]
+    name: ["Sporne"]
     flags: ["screen"]
   - board: nrfmicro_13_52833
     shield: [jorne_left, jorne_right]
@@ -31,7 +31,7 @@ include:
   - board: [skean_left, skean_right]
     name: ["Skean T1", "Skean Alps", "Skean DG"]
   - board: [skean_left, skean_right]
-    name: ["Skean MA", "Skean Zilent"]
+    name: ["Skean MA", "Skean Zilent", "Skean i-Rocks"]
     flags: ["no_crystal"]
   - board: [dao_left, dao_right]
   - board: [corneish_zen_v1_left, corneish_zen_v1_right]
