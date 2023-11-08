@@ -6,8 +6,8 @@ manifest:
       url-base: https://github.com/krikun98
   projects:
     - name: zmk
-      remote: krikun98
-      revision: nrf52833
+      remote: zmkfirmware
+      revision: main
       import: app/west.yml
   self:
     path: config
