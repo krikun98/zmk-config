@@ -29,10 +29,7 @@ include:
   - board: [jorian840_left, jorian840_right]
     name: ["Jorian840 Omron", "Jorian840 Cobalt", "wEnki44"]
   - board: [skean_left, skean_right]
-    name: ["Skean T1", "Skean Alps", "Skean DG"]
-  - board: [skean_left, skean_right]
-    name: ["Skean MA", "Skean Zilent", "Skean i-Rocks"]
-    flags: ["no_crystal"]
+    name: ["Skean T1", "Skean Alps", "Skean DG", "Skean MA", "Skean Zilent", "Skean i-Rocks"]
   - board: [dao_left, dao_right]
   - board: [corneish_zen_v1_left, corneish_zen_v1_right]
   - board: seeeduino_xiao_ble
