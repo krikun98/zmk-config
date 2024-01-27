@@ -20,7 +20,7 @@ include:
   - board: nrfmicro_13_52833
     shield: [jorne_left, jorne_right]
     name: ["Sporne"]
-    flags: ["screen"]
+    flags: ["screen", "no_mono"]
   - board: nrfmicro_13_52833
     shield: [jorne_left, jorne_right]
     name: ["RT-22"]

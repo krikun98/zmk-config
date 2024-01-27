@@ -41,5 +41,7 @@ for el in data.get("include"):
                         )
                     if "screen" in flags:
                         new_el["flags"] += r"-DCONFIG_ZMK_DISPLAY=y "
+                    if "no_mono" in flags:
+                        new_el["flags"] += r"-DCONFIG_LV_USE_THEME_MONO=n "
                 new_data["include"].append(new_el)
 print(json.dumps(new_data))
