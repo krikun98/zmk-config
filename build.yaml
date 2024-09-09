@@ -32,8 +32,8 @@ include:
     name: ["Skean T1", "Skean Alps", "Skean DG", "Skean MA", "Skean Zilent", "Skean i-Rocks", "Skean SKCC"]
   - board: [dao_left, dao_right]
   - board: [corneish_zen_v1_left, corneish_zen_v1_right]
-    name: ["Corne-ish Zen gChoc"]
+    name: ["Zen gChoc"]
   - board: [corneish_zen_v2_left, corneish_zen_v2_right]
-    name: ["Corne-ish Zen Sunset"]
+    name: ["Zen Sunset"]
   - board: seeeduino_xiao_ble
     shield: [ergonaut_one_left, ergonaut_one_right]
