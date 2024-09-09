@@ -29,8 +29,11 @@ include:
   - board: [jorian840_left, jorian840_right]
     name: ["Jorian840 Omron", "Jorian840 Cobalt", "wEnki44"]
   - board: [skean_left, skean_right]
-    name: ["Skean T1", "Skean Alps", "Skean DG", "Skean MA", "Skean Zilent", "Skean i-Rocks"]
+    name: ["Skean T1", "Skean Alps", "Skean DG", "Skean MA", "Skean Zilent", "Skean i-Rocks", "Skean SKCC"]
   - board: [dao_left, dao_right]
   - board: [corneish_zen_v1_left, corneish_zen_v1_right]
+    name: ["Corne-ish Zen gChoc"]
+  - board: [corneish_zen_v2_left, corneish_zen_v2_right]
+    name: ["Corne-ish Zen Sunset"]
   - board: seeeduino_xiao_ble
     shield: [ergonaut_one_left, ergonaut_one_right]
