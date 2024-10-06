@@ -4,7 +4,7 @@ import json
 
 inp = input()
 data = json.loads(inp)
-new_data = {}
+new_data: dict = {}
 new_data["include"] = []
 for el in data.get("include"):
     names = el.get("name")
@@ -33,6 +33,7 @@ for el in data.get("include"):
                     new_el["shield"] = shield
                 if flags:
                     new_el["flags"] = ""
+                    new_el["snippets"] = ""
                     if "no_crystal" in flags:
                         new_el["flags"] += (
                             "-DCONFIG_CLOCK_CONTROL_NRF=y "
