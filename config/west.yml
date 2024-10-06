@@ -1,13 +1,19 @@
 manifest:
   remotes:
-    - name: krikun98
-      url-base: https://github.com/krikun98
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: krikun98
+      url-base: https://github.com/krikun98
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+    - name: skean-zmk-module
+      remote: krikun98
+      revision: main
+    - name: jorian840-zmk-module
+      remote: krikun98
+      revision: main
   self:
     path: config
