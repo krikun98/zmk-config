@@ -43,5 +43,8 @@ for el in data.get("include"):
                         new_el["flags"] += r"-DCONFIG_ZMK_DISPLAY=y "
                     if "no_mono" in flags:
                         new_el["flags"] += r"-DCONFIG_LV_USE_THEME_MONO=n "
+                    if "studio" in flags:
+                        new_el["flags"] += r"-DCONFIG_ZMK_STUDIO=y "
+                        new_el["snippets"] += r"studio-rpc-usb-uart "
                 new_data["include"].append(new_el)
 print(json.dumps(new_data))
