@@ -41,3 +41,4 @@ include:
     flags: ["studio"]
   - board: seeeduino_xiao_ble
     shield: [ergonaut_one_left, ergonaut_one_right]
+    flags: ["studio"]

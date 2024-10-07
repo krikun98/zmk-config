@@ -4,6 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: krikun98
       url-base: https://github.com/krikun98
+    - name: ergonautkb
+      url-base: https://github.com/ergonautkb
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -14,6 +16,9 @@ manifest:
       revision: main
     - name: jorian840-zmk-module
       remote: krikun98
+      revision: main
+    - name: one-zmk-module
+      remote: ergonautkb
       revision: main
   self:
     path: config
