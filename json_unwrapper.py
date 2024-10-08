@@ -42,8 +42,8 @@ for el in data.get("include"):
                         )
                     if "screen" in flags:
                         new_el["flags"] += r"-DCONFIG_ZMK_DISPLAY=y "
-                    if "no_mono" in flags:
-                        new_el["flags"] += r"-DCONFIG_LV_USE_THEME_MONO=n "
+                    if "mem_constraint" in flags:
+                        new_el["flags"] += r"-DCONFIG_LV_USE_THEME_MONO=n -DCONFIG_LV_DRAW_COMPLEX=n "
                     if "studio" in flags:
                         new_el["flags"] += r"-DCONFIG_ZMK_STUDIO=y "
                         new_el["snippets"] += r"studio-rpc-usb-uart "
