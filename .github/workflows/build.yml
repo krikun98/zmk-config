@@ -189,12 +189,12 @@ jobs:
 
   merge:
     runs-on: ubuntu-latest
-    needs: build
+    needs: [env-setup, build]
     name: Merge Output Artifacts
     steps:
       - name: Merge Artifacts
         uses: actions/upload-artifact/merge@v4
         with:
-          name: ${{ inputs.archive_name }}
+          name: ${{ needs.env-setup.outputs.archive_name }}
           pattern: artifact-*
           delete-merged: true
