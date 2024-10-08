@@ -61,10 +61,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create build directory
-        run: |
-          echo "build_dir=$(mktemp -d)" >> $GITHUB_ENV
-
       - name: Install yaml2json
         run: python3 -m pip install remarshal
 
@@ -104,6 +100,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Create build directory
+        run: |
+          echo "build_dir=$(mktemp -d)" >> $GITHUB_ENV
+
       - name: Cache west modules
         uses: actions/cache@v4
         continue-on-error: true
@@ -123,7 +123,7 @@ jobs:
             ${{ runner.os }}-
 
       - name: West Init
-        run: west init -l ${{ env.config_path }}
+        run: west init -l ${{ needs.env-setup.outputs.config_path }}
 
       - name: West Update
         run: west update
@@ -157,7 +157,7 @@ jobs:
 
       - name: West Build (${{ env.display_name }})
         shell: sh -x {0}
-        run: west build -s zmk/app -d "${{ env.build_dir }}" -b "${{ matrix.board }}" "${{ env.snippets }}" -- -DZMK_CONFIG=${GITHUB_WORKSPACE}/"${{ env.config_path }}" "${{ env.extra_cmake_args }}" "${{ matrix.cmake-args }}" "${{ env.name }}" "${{env.flags}}"
+        run: west build -s zmk/app -d "${{ env.build_dir }}" -b "${{ matrix.board }}" "${{ env.snippets }}" -- -DZMK_CONFIG=${GITHUB_WORKSPACE}/"${{ needs.env-setup.outputs.config_path }}" "${{ env.extra_cmake_args }}" "${{ matrix.cmake-args }}" "${{ env.name }}" "${{env.flags}}"
 
       - name: Remove env variables from config
         shell: bash -x {0}
