@@ -178,12 +178,6 @@ jobs:
           fi
 
       - name: Archive (${{ env.display_name }})
-        uses: actions/upload-artifact@v3
-        with:
-          name: ${{ needs.env-setup.outputs.archive_name }}
-          path: build/artifacts
-
-      - name: Archive (${{ env.display_name }})
         uses: actions/upload-artifact@v4
         with:
           name: artifact-${{ env.artifact_name }}
