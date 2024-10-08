@@ -157,7 +157,7 @@ jobs:
 
       - name: West Build (${{ env.display_name }})
         shell: sh -x {0}
-        run: west build -s zmk/app -d "${{ env.build_dir }}" -b "${{ matrix.board }}" "${{ env.snippets }}" -- -DZMK_CONFIG=${GITHUB_WORKSPACE}/"${{ needs.env-setup.outputs.config_path }}" "${{ env.extra_cmake_args }}" "${{ matrix.cmake-args }}" "${{ env.name }}" "${{env.flags}}"
+        run: west build -s zmk/app -d ${{ env.build_dir }} -b ${{ matrix.board }} ${{ env.snippets }} -- -DZMK_CONFIG=${GITHUB_WORKSPACE}/${{ needs.env-setup.outputs.config_path }} ${{ env.extra_cmake_args }} ${{ matrix.cmake-args }} ${{ env.name }} ${{env.flags}}
 
       - name: Remove env variables from config
         shell: bash -x {0}
