@@ -20,5 +20,8 @@ manifest:
     - name: one-zmk-module
       remote: ergonautkb
       revision: main
+    - name: tbk-mini-zmk-module
+      remote: krikun98
+      revision: main
   self:
     path: config

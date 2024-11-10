@@ -22,6 +22,9 @@ include:
     name: ["Sporne"]
     flags: ["screen", "mem_constraint"]
   - board: nrfmicro_13_52833
+    shield: [tbk_mini_left, tbk_mini_right]
+    flags: ["studio"]
+  - board: nrfmicro_13_52833
     shield: [jorne_left, jorne_right]
     name: ["RT-22"]
   - board: nrfmicro_13_52833
