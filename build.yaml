@@ -33,7 +33,11 @@ include:
     name: ["Jorian840 Omron", "Jorian840 Cobalt", "wEnki44"]
     flags: ["studio"]
   - board: [skean_left, skean_right]
-    name: ["Skean T1", "Skean Alps", "Skean DG", "Skean MA", "Skean Zilent", "Skean i-Rocks", "Skean SKCC"]
+    name: ["Skean T1", "Skean Alps", "Skean DG", "Skean MA", "Skean i-Rocks", "Skean SKCC"]
+    flags: ["studio"]
+  - board: [skean_left, skean_right]
+    name: ["Skean Zilent"]
+    debounce: 10
     flags: ["studio"]
   - board: [dao_left, dao_right]
   - board: [corneish_zen_v1_left, corneish_zen_v1_right]

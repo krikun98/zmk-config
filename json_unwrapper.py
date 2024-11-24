@@ -10,6 +10,7 @@ for el in data.get("include"):
     names = el.get("name")
     boards = el.get("board")
     shields = el.get("shield")
+    debounce = el.get("debounce")
     flags = el.get("flags")
     if type(names) != list:
         names = [names]
@@ -47,5 +48,10 @@ for el in data.get("include"):
                     if "studio" in flags:
                         new_el["flags"] += r"-DCONFIG_ZMK_STUDIO=y "
                         new_el["snippets"] += r"studio-rpc-usb-uart "
+                if debounce is not None:
+                    if new_el["flags"] is None:
+                        new_el["flags"] = ""
+                    new_el["flags"] += f"CONFIG_ZMK_KSCAN_DEBOUNCE_PRESS_MS={debounce} "
+                    new_el["flags"] += f"CONFIG_ZMK_KSCAN_DEBOUNCE_RELEASE_MS={debounce} "
                 new_data["include"].append(new_el)
 print(json.dumps(new_data))
