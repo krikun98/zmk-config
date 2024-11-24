@@ -17,7 +17,7 @@ manifest:
     - name: jorian840-zmk-module
       remote: krikun98
       revision: main
-    - name: one-zmk-module
+    - name: ergonautkb-zmk-module
       remote: ergonautkb
       revision: main
     - name: tbk-mini-zmk-module

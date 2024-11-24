@@ -4,4 +4,10 @@
  * SPDX-License-Identifier: MIT
  */
 
+/ {
+  chosen {
+    zmk,physical_layout = &dao_full_layout;
+  };
+};
+
 #include "common_44.keymap"
