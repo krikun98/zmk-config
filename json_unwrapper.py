@@ -51,7 +51,7 @@ for el in data.get("include"):
                 if debounce is not None:
                     if new_el["flags"] is None:
                         new_el["flags"] = ""
-                    new_el["flags"] += f"CONFIG_ZMK_KSCAN_DEBOUNCE_PRESS_MS={debounce} "
-                    new_el["flags"] += f"CONFIG_ZMK_KSCAN_DEBOUNCE_RELEASE_MS={debounce} "
+                    new_el["flags"] += f"-DCONFIG_ZMK_KSCAN_DEBOUNCE_PRESS_MS={debounce} "
+                    new_el["flags"] += f"-DCONFIG_ZMK_KSCAN_DEBOUNCE_RELEASE_MS={debounce} "
                 new_data["include"].append(new_el)
 print(json.dumps(new_data))
